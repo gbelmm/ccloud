@@ -1,0 +1,43 @@
+ 
+  <ion-card> 
+    <ion-img *ngIf="carta.itemError!=true" [src]="carta.imagen" (ionError)="imgError($event)" [ngClass]="{'imgCard': mode=='small','imgCardBig':mode=='large'}" ></ion-img>
+    <div  *ngIf="carta.itemError==true">
+      <ion-skeleton-text  [ngClass]="{'imgCard': mode=='small','imgCardBig':mode=='large'}" animated></ion-skeleton-text>
+    </div>
+    <ion-card-header> 
+      <ion-card-subtitle>{{carta.name}}</ion-card-subtitle>
+    </ion-card-header>
+    <ion-card-content>
+      <p class="text" *ngIf="carta.text" [innerHTML]="carta.text"></p>
+      <ion-grid  >
+        <ion-row>
+          <ion-col size="4" *ngIf="carta.health!=undefined">
+            <ion-chip >
+              <ion-img src="assets/health.png"></ion-img>
+              <ion-label>{{carta.health}}</ion-label>
+            </ion-chip>
+          </ion-col>
+          <ion-col size="4" *ngIf="carta.cost!=undefined">
+
+            <ion-chip >
+              <ion-img src="assets/cost.png"></ion-img>
+              <ion-label>{{carta.cost}}</ion-label>
+            </ion-chip>
+
+          </ion-col>
+          <ion-col size="4" *ngIf="carta.attack!=undefined">
+            <ion-chip >
+              <ion-img src="assets/attack.png"></ion-img>
+              <ion-label>{{carta.attack}}</ion-label>
+            </ion-chip>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+     
+     
+      
+      
+      
+    </ion-card-content>
+  </ion-card>
+ 

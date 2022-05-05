@@ -1,0 +1,14 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-img src="assets/logo.png"></ion-img>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-fab vertical="bottom" horizontal="end" slot="fixed">
+    <ion-fab-button color="dark" (click)="nuevoMazo()">
+      <ion-icon name="add-outline"></ion-icon>
+    </ion-fab-button>
+  </ion-fab>
+  <app-mazos [mazos]="mazos" ></app-mazos>
+</ion-content>

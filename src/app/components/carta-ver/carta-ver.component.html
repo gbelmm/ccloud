@@ -1,0 +1,30 @@
+<ion-header >
+  <ion-toolbar>
+    <ion-title>{{carta.name}}</ion-title>
+    <ion-buttons slot="end">
+      <ion-button (click)="dismissModal()"><ion-icon name="close-outline"></ion-icon></ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+<ion-content>
+
+
+
+  <app-carta [carta]="carta" [mode]="'large'"></app-carta>
+
+  
+</ion-content>
+<ion-footer collapse="fade">
+  <ion-toolbar>
+    <ion-grid fixed>
+      <ion-row>
+        <ion-col size="6">
+          <ion-button expand="block" color="warning" (click)="editar(carta)">Editar</ion-button>
+        </ion-col>
+        <ion-col size="6">
+          <ion-button expand="block" color="danger"  (click)="eliminar(carta)"  >Eliminar </ion-button>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </ion-toolbar>
+</ion-footer>

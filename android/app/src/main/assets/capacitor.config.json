@@ -1,0 +1,6 @@
+{
+	"appId": "io.ccloud.app",
+	"appName": "ccloud",
+	"webDir": "www",
+	"bundledWebRuntime": false
+}

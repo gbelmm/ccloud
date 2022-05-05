@@ -1,0 +1,95 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Nuevo Mazo</ion-title>
+    <ion-buttons slot="end">
+      <ion-button (click)="dismissModal()">
+        <ion-icon name="close-outline"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+<ion-content>
+  <ion-item>
+    <ion-label position="stacked">Nombre Mazo</ion-label>
+    <ion-input [(ngModel)]="mazo.name"></ion-input>
+  </ion-item>
+  <ion-list-header>
+    <ion-label>Cartas</ion-label>
+  </ion-list-header>
+
+  <ion-list>
+    <form [formGroup]="cartasForm" (ngSubmit)="onSubmit()">
+
+      <ion-item>
+        <ion-label position="stacked">Nombre Carta</ion-label>
+        <ion-input [(ngModel)]="carta.name" formControlName="name"></ion-input>
+      </ion-item>
+      <ion-grid >
+        <ion-row>
+          <ion-col size="6">
+            <ion-item>
+              <ion-label position="stacked">Health</ion-label>
+              <ion-input type="number" [(ngModel)]="carta.health" formControlName="health"></ion-input>
+            </ion-item>
+          </ion-col>
+          <ion-col size="6">
+            <ion-item>
+              <ion-label position="stacked">Cost</ion-label>
+              <ion-input type="number" [(ngModel)]="carta.cost" formControlName="cost"></ion-input>
+            </ion-item>
+
+          </ion-col>
+        </ion-row>
+        <ion-row>
+          <ion-col size="6">
+            <ion-item>
+              <ion-label position="stacked">Attack</ion-label>
+              <ion-input type="number" [(ngModel)]="carta.attack" formControlName="attack"></ion-input>
+            </ion-item>
+          </ion-col>
+          <ion-col size="6">
+            <ion-item>
+              <ion-label position="stacked">Texto</ion-label>
+              <ion-input type="text" [(ngModel)]="carta.text" formControlName="text"></ion-input>
+            </ion-item>
+
+          </ion-col>
+        </ion-row>
+
+      </ion-grid>
+       
+     
+      <ion-item>
+        <ion-label position="stacked">Imagen</ion-label>
+        <ion-input type="file" [(ngModel)]="carta.imagen" (change)="handleUpload($event)"  formControlName="imagen"></ion-input>
+      </ion-item>
+      <ion-button expand="block" color="secondary" [disabled]="!cartasForm.valid" type="submit">Guardar Carta</ion-button>
+    </form>
+   
+  </ion-list>
+
+  <ion-list>
+    <ion-grid fixed>
+      <ion-row>
+        <ion-col size="6" *ngFor="let carta of cartas">
+          <app-carta [carta]="carta" [mode]="'small'"></app-carta>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </ion-list>
+</ion-content>
+<ion-footer collapse="fade">
+  <ion-toolbar>
+    <ion-grid fixed>
+      <ion-row>
+        <ion-col size="6">
+          <ion-button expand="block" color="secondary" (click)="dismissModal()">Cancelar</ion-button>
+        </ion-col>
+        <ion-col size="6">
+          <ion-button expand="block" color="success" (click)="guardar()" [disabled]="cartas.length < 5">
+            {{ cartas.length }}/50 Guardar</ion-button>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </ion-toolbar>
+</ion-footer>

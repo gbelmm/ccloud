@@ -1,0 +1,7 @@
+<?xml version='1.0' encoding='utf-8'?>
+<resources>
+    <string name="app_name">ccloud</string>
+    <string name="title_activity_main">ccloud</string>
+    <string name="package_name">io.ccloud.app</string>
+    <string name="custom_url_scheme">io.ccloud.app</string>
+</resources>

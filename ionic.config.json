@@ -1,0 +1,7 @@
+{
+  "name": "ccloud",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}

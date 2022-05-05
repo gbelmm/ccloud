@@ -1,0 +1,26 @@
+<ion-header >
+  <ion-toolbar>
+    <ion-title>{{ nombre }}</ion-title>
+    <ion-buttons slot="end">
+      <ion-button (click)="dismissModal()"> 
+        <ion-icon name="close-outline"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+<ion-content>
+  <ion-fab vertical="bottom" horizontal="end" slot="fixed">
+    <ion-fab-button color="success" [disabled]="cartas.length>=50" (click)="nuevaCarta()">
+      <ion-icon name="add"></ion-icon>
+    </ion-fab-button>
+  </ion-fab>
+  <ion-grid>
+    <ion-row>
+      <ion-col size="6" *ngFor="let item of cartas; let i = index" (click)="verCarta(item)">
+      
+        <app-carta [carta]="item" [mode]="'small'"></app-carta>
+
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>
