@@ -1,6 +1,7 @@
  
   <ion-card> 
-    <ion-img *ngIf="carta.itemError!=true" [src]="carta.imagen" (ionError)="imgError($event)" [ngClass]="{'imgCard': mode=='small','imgCardBig':mode=='large'}" ></ion-img>
+    <ion-img *ngIf="carta.itemError!=true && !carta.imagenB64" [src]="carta.imagen" (ionError)="imgError($event)" [ngClass]="{'imgCard': mode=='small','imgCardBig':mode=='large'}" ></ion-img>
+    <ion-img *ngIf="carta.imagenB64" [src]="carta.imagenB64" (ionError)="imgError($event)" [ngClass]="{'imgCard': mode=='small','imgCardBig':mode=='large'}" ></ion-img>
     <div  *ngIf="carta.itemError==true">
       <ion-skeleton-text  [ngClass]="{'imgCard': mode=='small','imgCardBig':mode=='large'}" animated></ion-skeleton-text>
     </div>
